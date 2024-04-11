@@ -32,15 +32,17 @@ player2.addEventListener("click",()=>{
 p2Dispay.innerHTML=p2Score
 })
 
-resetButton.addEventListener('click',()=>{
+resetButton.addEventListener('click',reset);
+winningScoreSelect.addEventListener('change',function(){
+   winningScore=parseInt(this.value);
+   reset();
+})
+
+function reset(){
     isGameover=false;
     p1Score=0;
     p2Score=0;
 
     p1Display.innerHTML=p1Score;
-    p2Dispay.innerHTML=p2Score;
-
-})
-winningScoreSelect.addEventListener('change',()=>{
-    alert(this.value);
-})
+    p2Dispay.innerHTML=p2Score;  
+}
