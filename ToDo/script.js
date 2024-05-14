@@ -1,6 +1,11 @@
-let spanOne = document.getElementsByClassName("add-btn");
+/* function init(){
+    var name = "Moilla";
 
-function newElement() {
-console.log([...spanOne]);
-spanOne[0].createElement("p");
+    function displayName(){
+        console.log(name);
+    }
+    displayName()
 }
+init();
+
+closure */
