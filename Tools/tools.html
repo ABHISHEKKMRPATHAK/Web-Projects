@@ -10,30 +10,30 @@
     <input id="input" type="number" >
     <div class="operations">
     <div class="horizontal-one">
-        <button class="digit">1</button>
-        <button class="digit">2</button>
-        <button class="digit">3</button>
+        <button class="digit" id="btn-1" value="1">1</button>
+        <button class="digit" value="2">2</button>
+        <button class="digit" value="3">3</button>
         <button class="digit">=</button>
     </div>
     <div class="horizontal-two">
-        <button class="digit">3</button>
-        <button class="digit">4</button>
-        <button class="digit">5</button>
+        <button class="digit" value="4">4</button>
+        <button class="digit" value="5">5</button>
+        <button class="digit" value="6">6</button>
         <button class="digit">+</button>
     </div>
 
     <div class="horizontal-three">
-        <button class="digit">6</button>
-        <button class="digit">7</button>
-        <button class="digit">8</button>
+        <button class="digit" value="7">7</button>
+        <button class="digit" value="8">8</button>
+        <button class="digit" value="9">9</button>
         <button class="digit">-</button>
     </div>
 
     <div class="horizontal-four">
-        <button class="digit">9</button>
-        <button class="digit">10</button>
-        <button class="digit">11</button>
+        <button class="digit">0</button>
+        <button class="digit">*</button>
         <button class="digit">/</button>
+        <button class="digit">sin</button>
     </div>
 
     <div class="horizontal-five">
@@ -46,4 +46,11 @@
 </div>
    </div> 
 </body>
+<script>
+  
+function clicked(x){
+    console.log(x);
+}
+ const input = document.querySelectorAll(".digit").forEach(function(item))
+</script>
 </html>
