@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text" placeholder="name" id="inp">
+    <button id="calc" onclick="showoutput()">Calculate</button>
+</body>
+<script>
+    let inpValue = document.getElementById("inp").value;
+    let btn = document.getElementById("calc");
+    
+    function showoutput(){
+     let output= inpValue.length * 50;
+    console.log(inpValue);
+    const content = document.createElement("p");
+    content.innerText = output;
+    document.body.appendChild(content);
+    }
+
+</script>
+</html>
