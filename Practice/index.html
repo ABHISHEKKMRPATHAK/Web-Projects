@@ -1,3 +1,6 @@
+<!--taking input in box and output the length of the input -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +11,39 @@
 <body>
     <input type = "text" placeholder="name" id="inp">
     <button id="calc" onclick="showoutput()">Calculate</button>
+
+    <div>
+        <h1>Taj Hotel</h1>
+        <button id="book" onclick="makeBooking()">Book Hotel</button>
+        <button id="cancel" onclick="cancelBooking()">Cancel Booking</button>
+    </div>
 </body>
 <script>
-    let inpValue = document.getElementById("inp").value;
-    let btn = document.getElementById("calc");
+   
     
     function showoutput(){
-     let output= inpValue.length * 50;
-    console.log(inpValue);
+        let inpValue = document.getElementById("inp").value;
+    let btn = document.getElementById("calc");
+     let output= inpValue.length ;
     const content = document.createElement("p");
-    content.innerText = output;
+    content.innerText = `Length of input :${output}`;
     document.body.appendChild(content);
     }
+
+    let hotel = {
+        rating:4.2,
+        booking:22,  
+    };
+    function makeBooking(){
+        let booking = document.getElementById("booking");
+        hotel.booking++;
+        console.log(hotel.booking);
+    };
+    function cancelBooking(){
+        let cancel =document.getElementById("cancel");
+        hotel.booking--;
+        console.log(hotel.booking);
+    };
 
 </script>
 </html>
