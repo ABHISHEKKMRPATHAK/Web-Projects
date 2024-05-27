@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>
+    Closure
+   </h1> 
+</body>
+<script>
+    function Patient(id,name,address,bloodGroup){
+        this.id = id;
+        this.name=name;
+
+        var _address= address;
+        var _bloodGroup=_bloodGroup;
+
+        this.printDetails = function(){
+            console.log(`Patient details are : 
+            Patient ID: ${this.id}
+            Name : ${this.name}
+            Address: ${this._address}
+            Blood Grooup : ${this._bloodGroup}`)
+        }
+    }
+
+    var pOne = new Patient(12,"Rohan","Chennai","AB+");
+    console.log(pOne.printDetails());
+
+</script>
+</html>

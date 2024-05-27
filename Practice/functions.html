@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+      /*   let fxRate = {
+            INR: 82,
+            EUR: 0.1
+        };
+        
+        let discounts ={
+            INR: 0.1,
+            EUR: 0.2
+        };
+        
+        let inCart = {
+            id: 1,
+            total: 81000,
+            currency: "INR"
+        };
+        
+        let euCart ={
+            id:2,
+            total:772,
+            currency:"EUR"
+        };
+        
+        
+        function getTotalPrice(cart){
+            cart.finalTotal = cart.total * (1-discounts[cart.currency]);
+            function totalUSDPrice(){
+                return cart.finalTotal / fxRate[cart.currency];
+            }
+            return totalUSDPrice;
+        }
+        
+        let a =getTotalPrice(inCart);
+    console.log(a());
+
+*/
+
+let operation = prompt("Enter opeation");
+let calculate = new Function("opearand1","opearand2",operation);
+console.log(calculate(5,7,operation));
+
+
+        </script>
+</head>
+<body>
+    <h1>Function as first class object</h1>
+</body>
+
+</html>
