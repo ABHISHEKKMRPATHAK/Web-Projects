@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Call Apply and Bind</h1>
+</body>
+<script>
+  /* const person = {
+    firstName : 'John',
+    lastName : 'Doe',
+    fullName : function(){
+        console.log(this.firstName+" "+this.lastName);
+    }
+  }
+
+  person.fullName();
+
+  */
+
+ let person = {
+    fullName : function() {
+        console.log(this.firstName+" "+this.lastName);
+    }
+ }
+
+ let person1={
+    firstName:'Rohan',
+    lastName:'Kumar'
+ }
+
+ let person2={
+    firstName:'Basant',
+    lastName:'Kumar'
+ }
+
+ person.fullName.call(person2,person1);
+</script>
+</html>

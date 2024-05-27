@@ -15,20 +15,22 @@
         this.id = id;
         this.name=name;
 
-        var _address= address;
-        var _bloodGroup=_bloodGroup;
+        var _address= address;   //private Variables
+        var _bloodGroup =bloodGroup;
 
         this.printDetails = function(){
             console.log(`Patient details are : 
             Patient ID: ${this.id}
             Name : ${this.name}
-            Address: ${this._address}
-            Blood Grooup : ${this._bloodGroup}`)
+            Address: ${_address}
+            Blood Grooup : ${_bloodGroup}`)
         }
     }
 
     var pOne = new Patient(12,"Rohan","Chennai","AB+");
-    console.log(pOne.printDetails());
+    console.log(pOne);
+    console.log("Id of first patient is %s and name is %s",pOne._bloodGroup,pOne._address);
+    pOne.printDetails()
 
 </script>
 </html>
