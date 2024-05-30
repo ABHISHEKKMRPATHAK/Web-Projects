@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="#d3d3d3">
+    <h1>Forms</h1>
+    <form name=""myForm" action="./form.html" onsubmit="return validateForm()">
+    <h3>Registration Form</h3>
+    Username : <input type="text" placeholder=" Type your username " name="uname">
+    <br><br>
+    Age : <input type="number" name="age" required><br><br>
+    Residency : <input type="radio" name="residency" value="resident" checked>Resident
+                <input type="radio" name="residency" value="nonresident">Non Resident
+                <br><br>
+    Select ACcounts : <input type="checkbox" name="acctype" value="saving">Savings
+                      <input type="checkbox" name="acctype" value="checking" checked> Checking
+                      <input type="checkbox" name="acctype" value="moneymarket" > Money Market
+   <br><br>
+   
+                      Nationality: <select id="nationalty">
+    <option value="1">Australia</option>
+    <option value="2" selected>India</option>
+    <option value="3">USA</option>
+   </select><br><br>
+   <input type="submit" name="forms" value="Submit">
+   <input type="reset" name="forms" value="Reset">
+</form>
+   
+<script src="./JSForms.js"></script>
+</body>
+</html>
