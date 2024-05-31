@@ -5,3 +5,28 @@ function validateForm(){
         return false;
     }
 }
+
+let oneFunction = arg => {
+return new Promise(resolve=>{
+
+    setTimeout(()=>{
+        var returnVal = arg;
+        console.log("one function produces :" , returnVal);
+        resolve(returnVal);
+    },2000)  
+})
+}
+
+let twoFunction = arg =>{
+    return new Promise(resolve=>{
+       
+        setTimeout(()=>{
+          var  returnVal=arg+"two";
+          console.log("two function produces : ",returnVal);
+        },1000)
+    })
+}
+
+oneFunction("hello").then(()=>{
+    twoFunction("world");
+});
