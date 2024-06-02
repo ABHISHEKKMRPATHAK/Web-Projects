@@ -1,0 +1,13 @@
+button{
+   color: blueviolet;
+   width: 1400px;
+   border: 0cm;
+   text-align: left;
+}
+
+p{
+    display: block;
+    background-color: aliceblue;
+div{
+    margin: 0px;
+}
