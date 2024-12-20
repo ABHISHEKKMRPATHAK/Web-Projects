@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"></div>
+</body>
+<script>
+    var content = "<h1>Hello</h1>";
+    root=document.querySelector(".container");
+    root.innerHTML=content;
+    function world(){
+        return console.log("world");  
+    }
+     newWorld = new world;
+    console.log(newWorld);
+    
+</script>
+</html>
