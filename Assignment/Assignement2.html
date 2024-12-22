@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./react.js"></script>
+    <script src="./reactDom.js"></script>
+    <script src="./babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <script type="text/babel">
+    const App =()=>{
+       return(
+        <>
+        <InputField number='1'/>
+        <InputField number='2'/>
+        <Button type='Sum'/>
+        <Solution/>
+        </>
+       );
+    }
+const Button = (props)=>{
+    const handleClick=()=>{console.log("Hello")}
+    return <button onClick={handleClick}>{props.type}</button>
+}
+    const InputField = (props)=>{
+        const handleInput=()=>console.log("input entered")
+        return(<div>
+            <label>Number{props.number}</label>
+            <input type="text" onChange={handleInput}></input>
+            </div>
+        )
+    }
+
+    const Solution = ()=>{
+        return <div><h3>Solution:</h3></div>
+    }
+
+    var root = ReactDOM.createRoot(document.querySelector("#container"));
+    root.render(
+        <App/>
+    );
+</script>
+</body>
+</html>
