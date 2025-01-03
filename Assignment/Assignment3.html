@@ -1,45 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="react.js"></script>
     <script src="reactDom.js"></script>
     <script src="babel.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="container"></div>
     <script type="text/babel">
-    const App = () =>{
+      const App = () => {
         const num = React.useRef();
         const res = React.useRef();
-        function handleClick(){
-           const numInt = parseInt(num.current.value); 
-           for(let i=2;i<numInt;i++){
-            if(numInt%i==0){
-                res.current.innerText="Not Prime";
-                break;
-            }
-            else{
-                res.current.innerText="Prime";
-            }
-           }
+        const stringRef = React.useRef();
+        const reverse = React.useRef();
+        const operand1 =React.useRef();
+        const operand2=React.useRef();
+        const calculate = React.useRef();
+
+        
+
+        
+
+        function sum(){
+            const num1 =parseInt(operand1.current.value);
+            const num2 = parseInt(operand2.current.value);
+         
+            
+            const sum = num1+num2;
+            calculate.current.innerHTML="<b>"+sum+"</b>";
 
         }
-        return(
-            <div>
-                <p>Number <input ref={num}/></p>
-                <button onClick={handleClick}>Check</button>
-                <p ref={res}></p>
-                </div>
-             
-        )
-    }
-    var root = ReactDOM.createRoot(document.querySelector("#container"));
-    root.render(
-        <App/>
-    )
-</script>
-</body>
+
+
+
+        function revString() {
+          const str = stringRef.current.value;
+          const revStr = str.split("").reverse().join("");
+
+          reverse.current.innerText = revStr;
+        }
+        function handleClick() {
+          const numInt = parseInt(num.current.value);
+          for (let i = 2; i < numInt; i++) {
+            if (numInt % i === 0) {
+              res.current.innerText = "Not Prime";
+              break;
+            } else {
+              res.current.innerText = "Prime";
+            }
+          }
+        }
+        return (
+          <div>
+            <div id="prime">
+              <p>
+                Number <input ref={num} />
+              </p>
+              <button onClick={handleClick}>Check</button>
+              <p ref={res}></p>
+            </div>
+            <div id="reverse">
+              <p>
+                Enter a string <input ref={stringRef} />
+              </p>
+              <button onClick={revString}>Check</button>
+              <p ref={reverse}></p>
+            </div>
+            <div id="calc">
+              <p>
+                Number1 <input ref={operand1} />
+              </p>
+              <p>
+                Number2 <input  ref={operand2} />
+              </p>
+              <button className="calculate" onClick={sum}> Sum</button>
+              <button className="calculate">Subtract</button>
+              <button className="calculate">Multiply</button>
+              <button className="calculate">Division</button>
+              <button className="calculate">Mod</button>
+              <p>Result  <span ref={calculate}></span></p>
+            </div>
+          </div>
+        );
+      };
+      var root = ReactDOM.createRoot(document.querySelector("#container"));
+      root.render(<App />);
+    </script>
+  </body>
 </html>
