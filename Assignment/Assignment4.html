@@ -13,15 +13,19 @@
     <script type="text/babel">
         const App = ()=>{
         let [n1,setn1] = React.useState("100")
-    function handleClick(){
+    function handleClick(a){
         let n1=10;
-        console.log(n1);
+    const {type,id}=a.target;
+    console.log(type,id);
+    
+    
     }
 
             return(
                 <div>
                 <h1 style = {{color:'red'}}>Hi ! You Clicked {n1}</h1>
                 <button onClick={handleClick}>Click Me</button>
+                <input id="1" type="text" onChange={handleClick}/>
                 </div>
             )
         }
