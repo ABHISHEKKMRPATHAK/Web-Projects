@@ -12,20 +12,30 @@
     <div id="container"></div>
     <script type="text/babel">
         const App = ()=>{
-        let [n1,setn1] = React.useState("100")
-    function handleClick(a){
-        let n1=10;
-    const {type,id}=a.target;
-    console.log(type,id);
+        const [result,setResult]= React.useState("0")   
+        const [color,setColor]=React.useState(""); 
+        const [data,setData]=React.useState({})
     
-    
+        function handleChange(a){
+            const {id,value}=a.target;
+            setData({...data,[id]:value})                  
+    }
+    function handleClick(){
+        const {n1,n2}=data;
+        const sum = parseInt(n1)+parseInt(n2);
+        setColor(sum>100 ? "red" : "green") ;
+        setResult(sum)    
     }
 
             return(
                 <div>
-                <h1 style = {{color:'red'}}>Hi ! You Clicked {n1}</h1>
-                <button onClick={handleClick}>Click Me</button>
-                <input id="1" type="text" onChange={handleClick}/>
+                <h1 style = {{color:'red'}}>Calculator</h1>
+                <input id="n1" type="text" onChange={handleChange}/>
+                <br/>
+                <input id="n2" type="text" onChange={handleChange}/>
+                <br/>
+                <button onClick={handleClick}>Sum Me</button>
+                <h1 style={{color:color}}>{result}</h1>
                 </div>
             )
         }
