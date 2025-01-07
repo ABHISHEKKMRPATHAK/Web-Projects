@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="reactDom.js"></script>
+    <script src="babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        const App = ()=>{
+            const [dataFromChild,setDataFromChild]=React.useState("");
+            return(
+                <>
+                <h1>Hello : {dataFromChild}</h1>
+                <Child/>
+                </>
+            )
+        }
+
+        const Child=()=>{
+            const [data,setData] = React.useState({});
+            const [name,setName] = React.useState("h");
+            function handleChange(event){
+                const {id,value}=event.target;
+                setData({...data,[id]:value})
+                setName(value);   
+            }
+
+            
+            return(
+                <>
+                <input id="ip1" onChange={handleChange}/>
+                <button>Pass Data</button>
+                </>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("container"));
+        root.render(
+            <>
+            <App/>
+            </>
+        )
+    </script>
+</body>
+</html>
