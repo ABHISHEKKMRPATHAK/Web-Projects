@@ -27,8 +27,17 @@
                 <>
                 <h1>Child</h1>
                 <p>Name : <input onChange={handleChange}/></p>
-                <button onClick={handleClick}>Send data to parent </button>
+                <button onClick={handleClick}>Send data to B </button>
                 </>   
+            )
+        }
+
+        const B = (props)=>{
+     
+            return(
+                <>
+                <h1>B: {props.myname}</h1>
+                </>
             )
         }
    
@@ -41,8 +50,9 @@
             }
         return(
             <>
-            <h1>Parent: {name}</h1>
+            <h1>Parent</h1>
             <Child mybc={cb}/>
+            <B myname={name}/>
             </>
         )
        }
