@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./react.js"></script>
+    <script src="./reactDom.js"></script>
+    <script src="babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+      const A = ()=>{
+        return(
+            <h1>A</h1>
+        )
+      }
+      const B = ()=>{
+        return(
+            <>
+            <h1>B</h1>
+            <C/>
+            <D/>
+            <E/>
+            </>
+        )
+      }
+      const C = ()=>{
+        return(
+            <h1>C</h1>
+        )
+      }
+      const D = ()=>{
+        return(
+            <h1>D</h1>
+        )
+      }
+
+      const E = ()=>{
+        return(
+            <h1>E</h1>
+        )
+      }
+      const F = ()=>{
+        return(
+            <h1>F</h1>
+        )
+      }
+      const G = ()=>{
+        return(
+            <>
+            <h1>G</h1>
+            <H/>
+            </>
+        )
+      }
+      const H = ()=>{
+        return(
+            <h1>H</h1>
+        )
+      }
+      const I = ()=>{
+        return(
+            <h1>I</h1>
+        )
+      }
+      const App = ()=>{
+        const [name,setName]=React.useState("Ram");
+        return(
+            <>
+            <h1>APP</h1>
+            <A/>
+            <B/>
+            <F/>
+            <G/>
+            <I/>
+            </>
+
+        )
+      }
+
+        const root = ReactDOM.createRoot(document.getElementById("container"));
+        root.render(
+            <App/>
+        )
+    </script>
+</body>
+</html>
