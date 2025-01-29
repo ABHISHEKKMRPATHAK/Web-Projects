@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./react.js"></script>
+    <script src="./reactDom.js"></script>
+    <script src="babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+        const A = (props)=>{
+            const {name}=props;
+            {console.log(name);
+            }
+            return(
+                <div>
+            <p>{props.name}</p>
+            <button>Change Name</button>
+            </div>
+            )
+        }
+
+        const App = ()=>{
+            return(
+                <div>
+                    <h1>APP</h1>
+                    <A name= "Sachin"/>
+                    </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("container"));
+        root.render(
+            <App/>
+        )
+    </script>
+</body>
+</html>

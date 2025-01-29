@@ -12,6 +12,8 @@
     <div id="container"></div>
     <script type="text/babel">
 
+       const ctx = React.createContext();// create a context
+
       const A = ()=>{
         return(
             <h1>A</h1>
@@ -39,8 +41,9 @@
       }
 
       const E = ()=>{
+        const name = React.useContext(ctx)
         return(
-            <h1>E</h1>
+            <h1>E : {name}</h1>
         )
       }
       const F = ()=>{
@@ -57,9 +60,10 @@
         )
       }
       const H = ()=>{
+        const name = React.useContext(ctx)
         return(
-            <h1>H</h1>
-        )
+            <h1>H :{name}</h1>
+        ) 
       }
       const I = ()=>{
         return(
@@ -71,11 +75,13 @@
         return(
             <>
             <h1>APP</h1>
+            <ctx.Provider value={name}> {/* Provide context to all components*/}
             <A/>
             <B/>
             <F/>
             <G/>
             <I/>
+            </ctx.Provider>
             </>
 
         )
