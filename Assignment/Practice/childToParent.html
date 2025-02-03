@@ -11,25 +11,36 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-        const App = ()=>{
-            const [inp,setInp]=React.useState("");
-            const inputref = React.useRef("");
-            function handleClick(){
-                const value= inputref.current.value;
-                setInp(value);    
-            }
+        const App = ()=>{   
+            const [name,setName]=React.useState("Abhis");
+            function callback(data){
+                  setName(data);
+            }     
             return(
                 <>
-                <p>Enter name <input ref={inputref}/></p>
-                <button onClick={handleClick}>Send </button>
-                <Child name={inp}/>
+                <p>You entered {name}</p>
+                <Child data={callback}/>
                 </>
             )
         }
 
         const Child=(props)=>{
+            const [value,setValue]=React.useState("");
+            function handleClick(){
+                  props.data(value);
+                  
+                }
+
+                function handleChange(eve){
+                       const val=eve.target.value;
+                       setValue(val);
+                }
             return(
-            <p>You entered {props.name}</p>
+                <>
+                <p>Enter name <input onChange={handleChange}/></p>
+                <button onClick={handleClick}>Send </button>
+                </>
+            
             )
         }
         const root = ReactDOM.createRoot(document.getElementById("container"));
