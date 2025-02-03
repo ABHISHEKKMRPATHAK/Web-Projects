@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../react.js"></script>
+    <script src="../reactDom.js"></script>
+    <script src="../babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+        const ctx= React.createContext();
+
+     const A = ()=>{
+        return(
+            <p>A</p>
+        )
+     }
+     const B = ()=>{
+  
+        return(
+            <>
+            <p>B</p>
+            <C/>
+            <D/>
+            </>
+        )
+     }
+     const C = ()=>{
+        return(
+            <p>C</p>
+        )
+     }
+     const D = ()=>{
+        const data=React.useContext(ctx);
+        return(
+            <p>D:{data}</p>
+        )
+     }
+     const E = ()=>{
+        const ctxData= React.useContext(ctx);
+        return(
+            <>
+            <p>E:{ctxData}</p>
+            <F/>
+            </>
+        )
+     }
+     const F = ()=>{
+        return(
+            <p>F</p>
+        )
+     }
+     const G = ()=>{
+        return(
+            <p>G</p>
+        )
+     }
+
+
+
+     const App=()=>{
+        const [name,setName]=React.useState("Abhishek");
+        return(
+            <>
+            <p>Hello</p>
+            <ctx.Provider value={name}>
+            <A/>
+            <B/>
+            <E/>
+            <G/>
+        </ctx.Provider>
+            </>
+           
+        )
+     }
+
+    const root = ReactDOM.createRoot(document.getElementById("container"));
+    root.render(
+        <App/>
+    )
+    </script>
+</body>
+</html>
