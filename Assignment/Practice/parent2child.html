@@ -11,36 +11,29 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-     
-     const Child = (props)=>{
-        const[data,setData]=React.useState("");
-        function handleChange(eve){
-            const val = eve.target.value;
-            setData(val);
-        }
 
-        function handleClick(){
-           props.fn(data);                  
-        }
-
+        const Child = (props)=>{
             return(
                 <div  style={{color:"red",border: "2px solid green"}}>
-                <p>Enter Your name <input onChange={handleChange} /></p>
-                <button onClick={handleClick} >Pass Data </button>
-                </div>
-                    
+                    Hello {props.name}
+                    </div>
             )
         }
-
         const App=()=>{
-            const [val,setVal]=React.useState("")
-            function cb(name){
-                    setVal(name)
-            }
+            const [data,setData]=React.useState("");
+            const inputRef=React.useRef();
+            
+          
+            function handleClick(){
+                const val=inputRef.current.value;
+                setData(val)
+                        }
             return(
                 <div style={{color:"red",border: "2px solid yellow"}}>
-                <h1>Hello {name}</h1>
-                <Child fn={cb}/>
+                <p>Enter Your name <input  ref={inputRef}/></p>
+                <button onClick={handleClick}>Pass Data </button>
+                <p>{data}</p>
+                <Child name={data}/>
                 </div>
             )
         }
