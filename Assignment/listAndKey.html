@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="reactDom.js"></script>
+    <script src="babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+            
+            const App=()=>{
+                const players = ["Sachin","Kohli","Dhoni","Pant"];
+                return(
+                    <>
+                    <ol>
+                   {players.map((pl,ind)=><li key={"li"+ind}>{pl}</li>)}
+                   </ol>
+                   <select>
+                    {players.map((ele,ind)=><option key={"opt"+ind}>{ele}</option>)}
+                    </select>
+                    <div>
+                    {players.map((ele,ind)=><p><input type="radio" key={"opt"+ind} name="players"/>{ele}</p>)}
+                    </div>
+                    <table border="1px">
+                        <thead>
+                            <tr>
+                            <th>S.no</th>
+                            <th>Player name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {players.map((ele,ind)=><tr><td>{ind+1}</td><td>{ele}</td></tr>)}
+                                </tbody>
+                        </table>
+                    </>
+                )
+            }
+
+           const root = ReactDOM.createRoot(document.getElementById("container"));
+            root.render(
+                <App/>
+            )
+    </script>
+</body>
+</html>
