@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="reactDom.js"></script>
+    <script src="babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+      
+      const List = (props) => {
+        const{head,players}=props;
+        return (
+          <div>
+            <h2>{head}</h2>
+            <ul>
+              {players.map(player => <li key={player}>{player}</li>)}
+            </ul>
+          </div>
+        );
+      }
+
+      const App = () => {
+        const data = [
+          {
+            heading: 'Players',
+            players: ['sachin', 'dravid', 'dhoni', 'kohli'],
+          },
+          {
+            heading: 'Students',
+            players: ['s1', 's2', 's3', 's4'],
+          }
+        ];
+
+        return (
+          <div>
+            {data.map((ele, index) => (
+              <List key={index} head={ele.heading} players={ele.players} />
+            ))}
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("container"));
+      root.render(
+        <App />
+      );
+
+    </script>
+</body>
+</html>
