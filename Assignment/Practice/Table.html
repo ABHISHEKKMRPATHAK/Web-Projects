@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../react.js"></script>
+    <script src="../reactDom.js"></script>
+    <script src="../babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+      const App = ()=>{
+       
+       const students =  [
+       {
+              name:'s1',
+              marks:88
+          },
+          {
+              name:'s2',
+              marks:98
+          },
+          {
+              name:'s3',
+              marks:78
+          },
+          {
+              name:'s4',
+              marks:95
+          },
+          {
+              name:'s5',
+              marks:90
+          }]
+        return(
+            <>
+            {students.map((ele)=>{
+            <table border="2px">
+                <tbody>
+                        <tr>
+                        <td>{ele.name}</td>
+                        <td>{ele.marks}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            })}
+            </>
+        )
+      }
+
+        const root =ReactDOM.createRoot(document.getElementById("container"));
+        root.render(
+            <App/>
+        )
+    </script>
+</body>
+</html>
