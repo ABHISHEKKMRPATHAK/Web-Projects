@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../react.js"></script>
+    <script src="../reactDom.js"></script>
+    <script src="../babel.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+  
+    <script type="text/babel">
+      
+      const ctx = React.createContext();
+
+      const A = ()=>{
+        return(
+            <h1>A</h1>
+        )
+      }
+      const B = ()=>{
+        const data = React.useContext(ctx);
+        return(
+            <>
+            <h1>B:{data}</h1>
+            <C/>
+            <D/>
+            </>
+        
+        )
+      }
+      const C = ()=>{
+        const data = React.useContext(ctx);
+        return(
+            <h1>C:{data}</h1>
+        )
+      }
+      const D = ()=>{
+        return(
+            <>
+            <h1>D</h1>
+            <E/>
+            </>
+        )
+      }
+      const E = ()=>{
+        return(
+            <h1>E</h1>
+        )
+      }
+
+         
+
+        const App=()=>{
+            const data = "kol";
+     
+            return(
+                <>
+                <A/>
+                <ctx.Provider value={data}>
+                <B/>
+                <D/>
+                </ctx.Provider>
+                </>
+            )
+        }
+      var root = ReactDOM.createRoot(document.getElementById("container"));
+      root.render(
+        <App/>
+      )
+    </script>
+  </body>
+</html>
