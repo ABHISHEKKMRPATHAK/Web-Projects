@@ -13,14 +13,15 @@
     <script type="text/babel">
         const App =()=>{
             const[name,setName]=React.useState("Sachin");
+            
             React.useEffect(()=>{
-                console.log("Hello");
+                console.log("Execute this after rendering the content");
                 
             },[name])
+            debugger;
             return(
                 <>
-            <h1>{name}</h1>
-            <button>Toggle</button>
+                <h1>Hello World</h1>
             </>
 
         )

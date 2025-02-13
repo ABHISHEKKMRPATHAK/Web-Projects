@@ -9,12 +9,12 @@
     <script src="babel.js"></script>
   </head>
   <body>
-    <div class="container"></div>
+    <div id="container"></div>
     <script type="text/babel">
-      var root = ReactDOM.createRoot(document.querySelector(".container"));
+      var root = ReactDOM.createRoot(document.querySelector("#container"));
       root.render(
         <App/>
-      );
+      )
     </script>
   </body>
 </html>
