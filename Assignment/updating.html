@@ -11,28 +11,22 @@
   <body>
     <div id="container"></div>
     <script type="text/babel">
-       
-
-        const Child=()=>{
-            React.useEffect(()=>{
-                return ()=>{
-                    {console.log("unmounted")}
-                }
-
-            })
-            return(
-                <h1>Child</h1>
-            )
-        }
+          
         const App=()=>{
-            const [checked,setChecked]=React.useState();
-            return(
-                <>
-                <h1>App</h1>
-                {checked && <Child/>}
-                <input type='checkbox' onChange={(eve)=>setChecked(event.target.checked)}/>
-                </>
-            )
+            const [count,setcount]=React.useState(0);
+            const [name,setName]=React.useState("Sachin");
+            React.useEffect(()=>{
+                if(count!=0)
+               {console.log('rendered again')}
+            },[count])
+          return(  
+            <>
+         <h1>{count}</h1>
+         <button onClick={()=>{setcount(count+1)}}>+</button>
+         <h1>{name}</h1>
+         <button onClick={()=>{setName(name=="Sachin" ? "Dhoni" : "Sachin")}}>Toggle</button>
+         </> 
+          )
         }
       var root = ReactDOM.createRoot(document.querySelector("#container"));
       root.render(

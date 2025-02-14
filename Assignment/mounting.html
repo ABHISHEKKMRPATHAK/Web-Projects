@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="react.js"></script>
+<script src="reactDom.js"></script>
+<script src="babel.js"></script>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        const App =()=>{
+            const[name,setName]=React.useState("Sachin");
+        debugger;
+            React.useEffect(()=>{
+                console.log("Execute this after rendering the content");
+                
+            },[name])
+            return(
+                
+                <h1>Hello World</h1>
+            
+
+        )
+        }
+        const root=ReactDOM.createRoot(document.getElementById("container"));
+        root.render(
+            <App/>
+        )
+    </script>
+</body>
+</html>
