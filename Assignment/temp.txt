@@ -11,6 +11,12 @@
   <body>
     <div id="container"></div>
     <script type="text/babel">
+        const App=()=>{
+            return(
+                <>
+                </>
+            )
+        }
       var root = ReactDOM.createRoot(document.querySelector("#container"));
       root.render(
         <App/>

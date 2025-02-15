@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="reactDom.js"></script>
+    <script src="babel.js"></script>
+    <link rel="stylesheet" href="./bootstrap.css">
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+        const App=()=>{
+            const [data,setdata]=React.useState([])
+            function getList(){
+               const req = new XMLHttpRequest();
+               req.open("get","https://jsonplaceholder.typicode.com/posts")
+               req.send();
+               req.onload=()=>{
+               let res =req.responseText;
+               res=JSON.parse(res);
+               setdata(res);
+               }
+                
+            }
+            return(
+                <>
+                <button className="btn btn-primary" onClick={getList}>Get List</button>
+                <ol>{data.map((ele,ind)=><li key={'li'+ind}>{ele.title}</li>)}</ol>
+                </>
+            )
+        }
+      var root = ReactDOM.createRoot(document.querySelector("#container"));
+      root.render(
+        <App/>
+      )
+    </script>
+  </body>
+</html>
