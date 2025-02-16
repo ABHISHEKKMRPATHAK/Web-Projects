@@ -11,10 +11,9 @@
 <body>
     <div id="container"></div>
     <script type="text/babel">
-
-      const App = ()=>{
-       
-       const students =  [
+        const Table = (props)=>{
+            const{header}=props;
+            const students =  [
        {
               name:'s1',
               marks:88
@@ -35,18 +34,29 @@
               name:'s5',
               marks:90
           }]
+
+          return(
+            <table border='1px'>
+                <thead>
+                    <tr>
+                        {header.map((ele)=><th>{ele}</th>)}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {students.map((obj)=><tr>
+                            {columns .map((key)=><td>{obj[key]}</td>)}
+                            </tr>)}
+                        </tbody>
+                </table>
+          )
+        }
+
+      const App = ()=>{
+       
         return(
             <>
-            {students.map((ele)=>{
-            <table border="2px">
-                <tbody>
-                        <tr>
-                        <td>{ele.name}</td>
-                        <td>{ele.marks}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            })}
+           <h1>Table</h1>
+           <Table header={['Name','Users']}/>
             </>
         )
       }

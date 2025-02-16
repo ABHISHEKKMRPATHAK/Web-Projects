@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="reactDom.js"></script>
+    <script src="babel.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+        const Table=(props)=>{
+            const{header,data,cols,hasImage,imgColumn}=props;
+
+            return(
+                <table border='2px'>
+                         <thead>
+                            <tr>
+                                {header.map((ele,ind)=>{
+                                    <th key={'th_'+ind}>{ele}</th>
+                                })}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.map((obj,ind)=>{
+                                   return <tr key={"tr_+ind"}>
+                                        {cols.map((key,ind)=>{
+                                            return <td key={'td_'+ind}>
+                                                {obj[key]}
+                                                </td>
+                                            })}
+                                        
+                                      {
+                                    hasImage && imgColumn.map((col,ind)=>{
+                                         return <td key={'td_'+ind}>
+                                                <img src={obj[col]}></img>
+                                                </td>
+                                    })
+                                      }
+                                        </tr>
+                                })}
+                                </tbody>
+                    </table>
+            )
+        }
+
+        const App=()=>{
+            const [data,setData]=React.useState([])
+            const [header,setHeader]=React.useState([]);
+            const [cols,setCols]=React.useState([])
+            const [hasImage,sethasImage]=React.useState(false);
+            const [imgCol,setImgCol] =React.useState([]);
+
+            const fnSendReq=(url,heading,columns,bool,imgCols)=>{
+                const req = new XMLHttpRequest;
+                req.open("get",url)
+                req.send();
+               
+                req.onload=()=>{
+                    let res =req.responseText;
+                    res=JSON.parse(res);
+                    setData(res);
+                    setHeader(heading);
+                    setCols(columns);
+                    sethasImage(bool);
+                    setImgCol(imgCols);
+                }
+            }
+
+            function fnGetComment(){
+               fnSendReq("https://jsonplaceholder.typicode.com/comments",['ID','Name','E-mail'],['id','name','title'],false,[])
+                
+            }
+            function fnGetPic(){
+                fnSendReq("https://jsonplaceholder.typicode.com/photos",['TITLE','THUMBNAIL'],['title'],true,['thumbnailUrl'])
+                
+            }
+            return(
+                <>
+                <button onClick={fnGetPic}>Get Photos</button>
+                    <button onClick={fnGetComment}>Get Comments</button>
+                    <Table header={header} data={data} cols={cols} hasImage={hasImage} imgColumn={imgCol}/>
+                </>
+            )
+        }
+      var root = ReactDOM.createRoot(document.querySelector("#container"));
+      root.render(
+        <App/>
+      )
+    </script>
+  </body>
+</html>
