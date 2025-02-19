@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="reactDom.js"></script>
+    <script src="babel.js"></script>
+    <link rel="stylesheet" href='./bootstrap.css'>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+        const Table =(props)=>{
+          const {headers,data,columns}=props;
+          return(
+            <div>
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            {
+                                headers.map((ele,ind)=>{
+                                    return <th key={'th_'+ind}>{ele}</th>
+                                })
+                            }
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {
+                            data.map((obj,ind)=>{
+                                return<tr key={"tr_"+ind}>
+                                    {
+                                        columns.map((key,ind)=>{
+                                            return <td key={'td_'+ind}>{obj[key]}</td>
+                                        })
+                                    }
+                                    </tr>
+                            })
+                           }
+                            </tbody>
+
+                    </table>
+                </div>
+          )
+        }
+       
+        const App=()=>{
+
+          const [data,setData]=React.useState([]);
+            const fnGetUser=async ()=>{
+          try{
+                const res =await fetch("https://jsonplaceholder.typicode.com/users")
+          const json = await res.json()
+          console.log(json);
+          
+          setData(json)
+          }catch(e){
+            console.log(e);
+            setData([])
+            
+          }
+        
+        }
+            return(
+                <>       
+                <button className='btn btn-primary' onClick={fnGetUser}>Get Users</button>
+                {
+                  data.length>0 ?
+                <Table headers={["ID","Name","Phone"]} data={data} columns={['id','name','phone']} />
+                :<h1 className='text-center'>No data </h1>
+                }
+                </>
+
+            )
+        }
+      var root = ReactDOM.createRoot(document.querySelector("#container"));
+      root.render(
+        <App/>
+      )
+    </script>
+  </body>
+</html>
