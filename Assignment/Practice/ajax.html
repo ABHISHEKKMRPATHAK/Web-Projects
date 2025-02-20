@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../react.js"></script>
+    <script src="../reactDom.js"></script>
+    <script src="../babel.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+       
+
+        const App=()=>{
+            const [data,setData]=React.useState([])
+            function handleClick(){
+                fetch("https://jsonplaceholder.typicode.com/comments").
+                then((res)=>res.json())
+                .then((data)=>setData(data)
+                )
+            }
+            return(
+                <>
+                <button onClick={handleClick}>Get comments</button>
+                <ul>
+                        {data.map((ele) => (
+                            <li key={ele.id}>{ele.body}</li>
+                        ))}
+                    </ul>
+                </>
+            )
+        }
+      var root = ReactDOM.createRoot(document.querySelector("#container"));
+      root.render(
+        <App/>
+      )
+    </script>
+  </body>
+</html>
