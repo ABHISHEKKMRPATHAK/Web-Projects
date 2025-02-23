@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../react.js"></script>
+    <script src="../reactDom.js"></script>
+    <script src="../babel.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+  
+       const ctx = React.createContext();
+
+        const A =(props)=>{
+            return <h1>A : {props.children}</h1>
+        
+        }
+        const B =(props)=>{
+               const val = React.useContext(ctx)
+            return (
+                <>
+                <h1>B : {val}</h1>
+                <C name={val}/>
+                <D/>
+                <E/>
+                </>
+            )
+        
+        }
+        const C =(props)=>{
+            
+            return <h1>C : {props.name}</h1>
+        
+        }
+        const D =(props)=>{
+            const val = React.useContext(ctx)
+            return <h1>D : {val}</h1>
+        
+        }
+        const E =(props)=>{
+            return <h1>E : {props.username}</h1>
+        
+        }
+
+        const App=()=>{
+            const [username,setUserName] = React.useState("Ram")
+            return(
+                <>
+                <h1>Context</h1>
+                <ctx.Provider value={username}>
+                <A>{username}</A>
+                <B/>
+                </ctx.Provider>
+                {console.log(ctx)}
+                </>
+            )
+        }
+      var root = ReactDOM.createRoot(document.querySelector("#container"));
+      root.render(
+        <App/>
+      )
+    </script>
+  </body>
+</html>
