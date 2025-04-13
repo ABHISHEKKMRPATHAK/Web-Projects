@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="reactDom.js"></script>
+    <script src="babel.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        const App=()=>{
+            return(
+                <div>
+                <h1>Hello</h1>
+                <A/>
+                <br/>
+                <B/>
+                </div>
+            )
+        }
+        const A=()=>{
+            return(
+                <>
+                <input type='text' placeholder='Enter name'/>
+                <button type="submit">Submit</button>
+                </>
+            )
+        }
+        const B=()=>{
+            return(
+                <>
+                <input type='text' placeholder='Enter your location'/>
+                <button type='submit'>Submit</button>
+                </>
+            )
+        }
+        const C=()=>{
+            return(
+                <h1>Hello</h1>
+            )
+        } 
+        const D=()=>{
+            return(
+                <h1>Hello</h1>
+            )
+        }
+        const root = ReactDOM.createRoot(document.getElementById("container"));
+        root.render(
+            <App/>
+        )
+    </script>
+</body>
+</html>
