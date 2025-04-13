@@ -11,15 +11,17 @@
   <body>
     <div id="container"></div>
     <script type="text/babel">
+        let i = 1;
         const App=()=>{
-            function handleClick(){
-
-            }
+         
+                function handleClick() {
+                  i++
+                  console.log(i)
+                }
             return(
                 <>
-                <button onClick={handleClick}>1</button>
+                <button onClick={handleClick}>{i}</button>
               </>
-                </>
             )
         }
       var root = ReactDOM.createRoot(document.querySelector("#container"));

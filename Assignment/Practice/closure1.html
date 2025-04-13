@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1" onclick="f('btn1')">1</button>
+    <button id="btn2" onclick="f('btn2')">1</button>
+    <script>
+             
+             function fn(){
+                 var cnt1 = 0;
+                 var cnt2 = 0;
+                return function(id){
+                if(id=='btn1'){
+                    document.getElementById(id).innerText= cnt1++ ;
+                }
+                if(id=='btn2'){
+                    document.getElementById(id).innerText=cnt2++;
+                }
+             
+                }   
+             }
+             var f = fn();
+             
+    </script>
+</body>
+</html>
