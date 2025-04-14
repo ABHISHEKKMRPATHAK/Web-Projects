@@ -1,5 +1,9 @@
+'use Client';
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { appStore } from "./store";
+import { Provider } from "react-redux";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +24,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Provider store={appStore}>
         {children}
+        </Provider>
+     
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 'use client'
 import React, { useRef } from 'react'
+import { appStore } from './store';
 
 export function A() {
 //uncontrolled component
@@ -7,6 +8,7 @@ export function A() {
     const nameRef =useRef();
     function fnSubmit(){
         const name = nameRef.current.value;
+        appStore.dispatch({type:"NAME_UPDATE",payload:name})
     }
   return (
     <div>A
