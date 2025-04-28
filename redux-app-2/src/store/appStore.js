@@ -7,5 +7,5 @@ import {logger} from 'redux-logger'
 
 export const appStore = configureStore({
    reducer:{usersReducers,postsReducers,photosReducer},
-   middleware:[logger],
+  // middleware:[logger],
 })
