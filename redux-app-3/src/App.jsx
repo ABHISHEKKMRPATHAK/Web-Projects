@@ -19,8 +19,7 @@ function getUsers(){
     <>
     <ctx.Provider value={son}>
       <h1>Hello Redux !</h1>
-      <button id="photos" onClick={getUsers}>Get Photos</button>
-      <button id="users">Get Users</button>
+     
       <div>
       {console.log(ctx)
       }
